@@ -3,6 +3,7 @@ import { jwtConfig } from "../config/connect.js";
 
 export function genToken(user) {
   const payload = {
+    _id: user._id,
     email: user.email,
   };
   const token = jwt.sign(payload, jwtConfig.jwt_key, {

@@ -20,6 +20,12 @@ const userSchema = new Schema(
       required: [false, "please provide a password"],
       minlength: 6,
     },
+    produce: [
+      {
+        type: String,
+        ref: "Produce",
+      },
+    ],
   },
   {
     timestamps: true,
