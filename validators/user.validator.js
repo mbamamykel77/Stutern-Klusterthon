@@ -2,6 +2,12 @@
 import Joi from "joi"
 
 export const signupValidator = Joi.object({
+  firstName: Joi.string().required().messages({
+    'any.required': 'FirstName is required',
+  }),
+  lastName: Joi.string().required().messages({
+    'any.required': 'LastName is required',
+  }),
   email: Joi.string()
     .regex(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)
     .required()
@@ -15,6 +21,13 @@ export const signupValidator = Joi.object({
       "string.pattern.base":
         "Password must contain only letters and numbers, and be at least 6 characters long",
     }),
+    confirmPassword: Joi.string()
+    .valid(Joi.ref("password"))
+    .required()
+    .messages({
+      "any.only": "Passwords do not match",
+    }),
+    farmName: Joi.string().optional(),
 }).strict()
 
 

@@ -1,5 +1,5 @@
 // controller here
-import User from "../models/models.js";
+import User from "../models/user.models.js";
 import { signupValidator } from "../validators/user.validator.js";
 import bcrypt from "bcrypt";
 import { bcryptConfig } from "../config/connect.js";
@@ -26,8 +26,12 @@ export default class userController {
         const hashedPassword = bcrypt.hashSync(req.body.password, saltRound);
   
         const user = {
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
           email: req.body.email,
           password: hashedPassword,
+          confirmedPassword: hashedPassword,
+          farName: req.body.farmName
         };
   
         const newUser = await User.create(user);

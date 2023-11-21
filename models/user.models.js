@@ -3,6 +3,14 @@ import { Schema, model } from "mongoose";
 
 const userSchema = new Schema(
   {
+    firstName: {
+      type: String,
+      required: [true, "please tell us your name"],
+    },
+    lastName: {
+      type: String,
+      required: [true, "please tell us your name"],
+    },
     email: {
       type: String,
       required: [false, "please tell us your email address"],
@@ -19,6 +27,14 @@ const userSchema = new Schema(
       type: String,
       required: [false, "please provide a password"],
       minlength: 6,
+    },
+    confirmPassword: {
+      type: String,
+      required: [false, "Confirmation of the user's password"],
+      minlength: 6,
+    },
+    farmName: {
+      type: String,
     },
     produce: [
       {

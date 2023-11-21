@@ -1,6 +1,6 @@
 import Produce from "../models/produce.model.js";
 import { produceValidator } from "../validators/produce.validator.js";
-import User from "../models/models.js"
+import User from "../models/user.models.js"
 
 export default class produceController {
   static async addProduce(req, res) {
