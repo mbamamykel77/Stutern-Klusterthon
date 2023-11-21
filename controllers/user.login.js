@@ -1,4 +1,4 @@
-import User from "../models/models.js";
+import User from "../models/user.models.js";
 import { signinValidator } from "../validators/user.validator.js";
 import bcrypt from "bcrypt";
 import { genToken } from "../utils/jwt.utils.js";
