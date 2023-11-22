@@ -14,9 +14,9 @@ router.post("/signin", userloginController.signin);
 
 // produce route
 router.post("/produce/create", authUser, produceController.addProduce)
-router.get('/produce/list', authUser, produceController.getProduce);
-router.put('/produce/update/:produceId', authUser, produceController.updateProduce);
-router.delete('/produce/delete/:produceId', authUser, produceController.deleteProduce);
+router.get('/produce/list/:userId', authUser, produceController.getProduce);
+router.put('/produce/update/:userId/:produceId', authUser, produceController.updateProduce);
+router.delete('/produce/delete/:userId/:produceId', authUser, produceController.deleteProduce);
 
 
 export { router };

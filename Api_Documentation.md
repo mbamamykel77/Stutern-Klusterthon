@@ -6,8 +6,11 @@
 - **POST /farmers/signup**
 
 ### Request Body
+- **firstName** (string, required): email address.
+- **lastName** (string, required): email address.
 - **email** (string, required): email address.
 - **password** (string, required): password (must contain only letters and numbers, at least 6 characters long).
+- **confirmPassword** (string, required): (same as password)
 
 ### Response
 - **Success (200 OK)**
@@ -18,8 +21,11 @@
     "message": "User signup successful",
     "data": {
       "user": {
+        "firstName": "first",
+        "lastName": "test",
         "email": "user@example.com",
         "password": "hashed_password",
+        "confirmPassword": "hashed_password",
         "_id": "user_id",
         "createdAt": "timestamp",
         "updatedAt": "timestamp"
@@ -81,3 +87,7 @@
   "message": "Invalid email or password"
 }
 ```
+
+
+
+

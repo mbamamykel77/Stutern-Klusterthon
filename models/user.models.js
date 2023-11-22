@@ -38,7 +38,7 @@ const userSchema = new Schema(
     },
     produce: [
       {
-        type: String,
+        type: Schema.Types.ObjectId,
         ref: "Produce",
       },
     ],

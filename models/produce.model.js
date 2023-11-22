@@ -14,7 +14,7 @@ const produceSchema = new Schema({
   farmer: {
     type: Schema.Types.ObjectId,
     ref: 'User', // Reference to the User model
-    required: false,
+    required: true,
   },
 },
 {
