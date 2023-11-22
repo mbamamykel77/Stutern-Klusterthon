@@ -20,7 +20,7 @@ router.put('/produce/update/:userId/:produceId', authUser, produceController.upd
 router.delete('/produce/delete/:userId/:produceId', authUser, produceController.deleteProduce);
 
 // chat route
-router.post("/chat", chatController.chat)
+router.post("/chat", authUser, chatController.chat)
 
 
 
