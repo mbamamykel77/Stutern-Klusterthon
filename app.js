@@ -8,6 +8,10 @@ const port = Number(process.env.PORT) || 7000;
 app.use(express.json());
 
 // routes
+app.get('/', (req, res) => {
+  res.send('Welcome to the stuterm farm application!');
+});
+
 app.use("/farmers", Router);
 
 
