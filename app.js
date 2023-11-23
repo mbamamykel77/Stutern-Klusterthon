@@ -7,6 +7,8 @@ const app = express();
 const port = Number(process.env.PORT) || 7000;
 
 app.use(express.json());
+app.use(cors());
+
 
 // routes
 app.get('/', (req, res) => {
@@ -15,13 +17,12 @@ app.get('/', (req, res) => {
 
 app.use("/farmers", Router);
 
-// Use CORS middleware
 // Use CORS middleware with multiple allowed origins
-app.use(cors({
-  origin: ['https://stuternfarm.vercel.app', 'http://localhost:3000'],
-  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-  credentials: true,
-}));
+// app.use(cors({
+//   origin: ['https://stuternfarm.vercel.app', 'http://localhost:3000'],
+//   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+//   credentials: true,
+// }));
 
 // mongoDB connection
 mongoose
