@@ -11,6 +11,7 @@ const router = express.Router();
 // auth
 router.post("/signup", userController.signup);
 router.post("/signin", userloginController.signin);
+import fetchWeatherData from "../controllers/weather.control.js"
 
 
 // produce route
@@ -21,6 +22,9 @@ router.delete('/produce/delete/:userId/:produceId', authUser, produceController.
 
 // chat route
 router.post("/chat", authUser, chatController.chat)
+
+// weather route
+router.get("/weather", authUser, fetchWeatherData)
 
 
 
