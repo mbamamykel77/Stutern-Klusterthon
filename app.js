@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import { router as Router } from "./routes/router.js";
+import cors from "cors"
 
 const app = express();
 const port = Number(process.env.PORT) || 7000;
@@ -14,12 +15,16 @@ app.get('/', (req, res) => {
 
 app.use("/farmers", Router);
 
+// Use CORS middleware
+app.use(cors());
 
 // mongoDB connection
 mongoose
   .connect(process.env.MongoURI)
   .then(() => console.log("Database connection established"))
   .catch((error) => console.log(error.message));
+  console.log(process.env.MongoURI)
+
 
 
 app.listen(port, () => console.log(`listening on port ${port}`));
