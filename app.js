@@ -16,7 +16,12 @@ app.get('/', (req, res) => {
 app.use("/farmers", Router);
 
 // Use CORS middleware
-app.use(cors());
+// Use CORS middleware with multiple allowed origins
+app.use(cors({
+  origin: ['https://stuternfarm.vercel.app', 'http://localhost:3000'],
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+  credentials: true,
+}));
 
 // mongoDB connection
 mongoose
