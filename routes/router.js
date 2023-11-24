@@ -4,7 +4,7 @@ import userloginController from "../controllers/user.login.js"
 import authUser from '../middleware/auth.user.js';
 import produceController from '../controllers/produce.controller.js';
 // import ensureOwnership from '../middleware/farmers.auth.js';
-import chatController from '../controllers/chat.control.js';
+import  chatController from '../controllers/chat.control.js';
 
 const router = express.Router();
 
@@ -22,6 +22,8 @@ router.delete('/produce/delete/:userId/:produceId', authUser, produceController.
 
 // chat route
 router.post("/chat", authUser, chatController.chat)
+router.get('/chatHistory', authUser, chatController.getChatHistory);
+
 
 // weather route
 router.get("/weather", authUser, fetchWeatherData)
