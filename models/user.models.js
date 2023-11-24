@@ -42,6 +42,16 @@ const userSchema = new Schema(
         ref: "Produce",
       },
     ],
+    chatHistory: [
+      {
+        role: String,
+        content: String,
+        timestamp: {
+          type: Date,
+          default: Date.now,
+        },
+      },
+    ],
   },
   {
     timestamps: true,
