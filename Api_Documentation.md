@@ -287,3 +287,137 @@ The API will respond with a JSON object containing the chatbot's response.
 {
   "error": "Internal server error."
 }
+```
+
+
+## Get Chat History API Endpoint
+
+This API endpoint allows you to retrieve the chat history for a user.
+
+**GET /user/chatHistory**
+- Authorization: Bearer <your_jwt_token>
+
+```json
+{
+  "chatHistory": [
+    {
+      "role": "user",
+      "content": "Hello, how are you?",
+      "timestamp": "2023-11-24T12:34:56.789Z"
+    },
+    {
+      "role": "assistant",
+      "content": "I'm doing well, thank you!",
+      "timestamp": "2023-11-24T12:35:12.345Z"
+    }
+  ]
+}
+```
+
+**Error Handling**
+- 401 Unauthorized:
+
+- Returned if the request does not include a valid JWT token.
+- Response:
+```json
+{
+  "error": "Unauthorized - Token missing"
+}
+```
+404 Not Found:
+
+- Returned if the user is not found.
+- Response:
+
+```json
+{
+  "error": "User not found."
+}
+500 Internal Server Error:
+```
+
+- Returned for any internal server error.
+- Response:
+```json
+{
+  "error": "Internal server error."
+}
+```
+
+
+
+
+
+
+
+# Weather Api documentation
+
+**URL: /weather**
+
+**Method: GET**
+- Parameters:
+- latitude (required): The latitude of the location.
+- longitude (required): The longitude of the location.
+
+
+- The API returns a JSON object with the following structure:
+
+```json
+{
+    "status": "success",
+    "message": "weather data successfully retrieved",
+    "data": {
+        "coord": {
+            "lon": 3.3533,
+            "lat": 6.4985
+        },
+        "weather": [
+            {
+                "id": 803,
+                "main": "Clouds",
+                "description": "broken clouds",
+                "icon": "04d"
+            }
+        ],
+        "base": "stations",
+        "main": {
+            "temp": 302.29,
+            "feels_like": 309.22,
+            "temp_min": 302.29,
+            "temp_max": 302.29,
+            "pressure": 1013,
+            "humidity": 84
+        },
+        "visibility": 8000,
+        "wind": {
+            "speed": 1.03,
+            "deg": 0
+        },
+        "clouds": {
+            "all": 75
+        },
+        "dt": 1700822433,
+        "sys": {
+            "type": 1,
+            "id": 1185,
+            "country": "NG",
+            "sunrise": 1700804371,
+            "sunset": 1700846829
+        },
+        "timezone": 3600,
+        "id": 2332459,
+        "name": "Lagos",
+        "cod": 200
+    }
+}
+```
+
+**Error Handling**
+- If latitude or longitude is missing:
+
+- Status Code: 400
+- Response: { "error": "Latitude and longitude are required" }
+- Internal Server Error:
+
+- Status Code: 500
+- Response: { "error": "Internal Server Error" }
