@@ -5,13 +5,18 @@ import authUser from '../middleware/auth.user.js';
 import produceController from '../controllers/produce.controller.js';
 // import ensureOwnership from '../middleware/farmers.auth.js';
 import  chatController from '../controllers/chat.control.js';
+import getUserProfiles from "../controllers/user.profiles.js"
+import fetchWeatherData from "../controllers/weather.control.js"
+
 
 const router = express.Router();
 
 // auth
 router.post("/signup", userController.signup);
 router.post("/signin", userloginController.signin);
-import fetchWeatherData from "../controllers/weather.control.js"
+
+// get user profile
+router.get('/profiles', authUser, getUserProfiles);
 
 
 // produce route
